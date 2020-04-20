@@ -1,28 +1,46 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
-export default class Counter extends Component {
-  constructor() {
-    super();
+// export default class Counter extends Component {
+//   constructor() {
+//     super();
 
-    this.state = {
-      count: 0
-    };
-  }
+//     this.state = {
+//       count: 0
+//     };
+//   }
 
-  handleCrementer = increment => {
-    this.setState({
-      count: this.state.count + increment
-    });
-  };
+//   handleCrementer = increment => {
+//     this.setState({
+//       count: this.state.count + increment
+//     });
+//   };
 
-  render() {
-    return (
+//   render() {
+//     return (
+//       <div>
+//         <h3>{this.state.count}</h3>
+//         <button onClick={() => this.handleCrementer(1)}>Add</button>
+//         <button onClick={() => this.handleCrementer(-1)}>Sub</button>
+//         <hr />
+//       </div>
+//     );
+//   }
+// }
+
+import React, { useState } from "react";
+
+export default function Counter() {
+
+  const [count, setCount] = useState(0)
+
+  return (
+    <div>
+      <h3>{count}</h3>
       <div>
-        <h3>{this.state.count}</h3>
-        <button onClick={() => this.handleCrementer(1)}>Add</button>
-        <button onClick={() => this.handleCrementer(-1)}>Sub</button>
-        <hr />
+        <button onClick={() => { setCount(count + 1) }}>Add</button>
+        <button onClick={() => { setCount(count - 1) }}>Sub</button>
       </div>
-    );
-  }
+      <hr />
+    </div>
+  );
 }

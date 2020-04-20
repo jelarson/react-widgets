@@ -1,29 +1,31 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class Toggle extends Component {
-  constructor() {
-    super();
+// export default class Toggle extends Component {
+//   constructor() {
+//     super();
 
-    this.state = { isToggleOn: true };
+//     this.state = { isToggleOn: true };
 
-    this.handleToggle = this.handleToggle.bind(this);
-  }
+//     this.handleToggle = this.handleToggle.bind(this);
+//   }
 
-  handleToggle() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
-  }
+export default function Toggle() {
 
-  render() {
-    return (
+  const [content, setContent] = useState("Hello")
+
+  // const handleToggle = () => {
+  //   setShowContent(!setShowContent)
+  // }
+
+
+  return (
+    <div>
+      <h3>{content}</h3>
       <div>
-        <h3>{this.state.isToggleOn ? "Hello" : "Goodbye"}</h3>
-        <div>
-          <button onClick={() => this.handleToggle()}>Toggle Greeting</button>
-        </div>
-        <hr />
+        <button onClick={() => { content === "Hello" ? setContent("Goodbye") : setContent("Hello") }}>Toggle Greeting</button>
       </div>
-    );
-  }
+      <hr />
+    </div>
+  );
 }
+
